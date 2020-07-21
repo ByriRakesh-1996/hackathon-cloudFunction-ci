@@ -1,0 +1,21 @@
+# Default values for chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+annotations:
+  TOOLCHAIN_ID: null
+  GIT_URL: null
+  GIT_BRANCH: null
+  GIT_COMMIT: null
+  USER_NAME: null
+  APPLICATION_VERSION: null
+restartOnFailureLimit: 0
+replicaCount: 1
+image:
+  repository: <helm-repo>
+  tag: <helm-tag>
+  pullSecret: regsecret
+  pullPolicy: IfNotPresent
+  # for local development against Minikube registry
+  #pullPolicy: Never
+workload:
+  command: test-workload.sh

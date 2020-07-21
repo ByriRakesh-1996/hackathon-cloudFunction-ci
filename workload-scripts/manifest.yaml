@@ -1,0 +1,20 @@
+packages:
+  HackathonCloudFunctions: 
+    description: "IBM Cloud functions"
+    actions: 
+      FibonacciCloudFunction: 
+        runtime: "java 8"
+        version: 1.0
+        description: 'Fibanacci java program'
+        function: FibonacciCloudFunction-0.0.1.jar
+        main: com.hackathon.cloud.function.FunctionApp
+      NumberCountCloudFunction: 
+        runtime: "java 8"
+        version: 1.0
+        description: 'NumberCount java program'
+        function: NumberCountCloudFunction-0.0.1.jar
+        main: com.hackathon.cloud.function.FunctionApp
+    sequences:
+        FibonacciSequence:
+          actions: FibonacciCloudFunction, NumberCountCloudFunction
+          web: true
